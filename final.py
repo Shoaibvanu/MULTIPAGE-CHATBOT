@@ -93,8 +93,12 @@ def main():
     st.set_page_config(page_title="Legal Chatbot", page_icon="icon.png")
     st.write(css, unsafe_allow_html=True)
 
-    if "conversation" not in st.session_state:
-        st.session_state.conversation = None
+    if "conversation" not in st.session_state or st.session_state.conversation is None:
+        # Initialize conversation chain only if not already initialized
+        text_chunks = []  # Add your initialization logic here
+        vectorstore = get_vectorstore(text_chunks)
+        st.session_state.conversation = get_conversation_chain(vectorstore)
+
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None
 
