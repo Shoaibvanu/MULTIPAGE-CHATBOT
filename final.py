@@ -106,7 +106,9 @@ def main():
     user_question = st.text_input("ASK A LEGAL QUESTION RELATED TO INDIAN LAW")
     
     if user_question:
-        handle_userinput(user_question, st.session_state.conversation, pdf_processed=True)
+        # Ensure the conversation chain is callable before using it
+        if callable(st.session_state.conversation):
+            handle_userinput(user_question, st.session_state.conversation, pdf_processed=True)
 
     with st.sidebar:
         st.subheader("Your documents")
