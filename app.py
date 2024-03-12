@@ -14,7 +14,7 @@ import io
 import openai
 from concurrent.futures import ThreadPoolExecutor
 
-openai.api_key = "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"
+openai.api_key = "ssk-EQeR8OyJTKjOEzsDA2N5T3BlbkFJ5rTTZ7XSFxMBCvVzR6b7"
 
 def get_pdf_text(pdf_file):
     text = ""
