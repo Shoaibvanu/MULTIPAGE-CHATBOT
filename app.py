@@ -34,7 +34,7 @@ def get_openai_response(question, model="gpt-3.5-turbo-0613"):
     response = openai.ChatCompletion.create(
         model=model,
         messages=messages,
-        max_tokens=1000
+        max_tokens=700
     )
     return response['choices'][0]['message']['content'].strip()
 
