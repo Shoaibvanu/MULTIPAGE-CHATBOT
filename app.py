@@ -14,8 +14,6 @@ import io
 import openai
 from concurrent.futures import ThreadPoolExecutor
 
-openai.api_key = "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"
-
 def get_pdf_text(pdf_file):
     text = ""
     if pdf_file.size > 0:
@@ -118,7 +116,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
