@@ -1,5 +1,4 @@
 import streamlit as st
-from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import HuggingFaceInstructEmbeddings
@@ -84,7 +83,6 @@ def handle_userinput(user_question, conversation_chain, pdf_processed):
         st.write(bot_template.replace("{{MSG}}", response), unsafe_allow_html=True)
 
 def main():
-    load_dotenv()
     st.set_page_config(page_title="Legal Chatbot", page_icon="icon.png")
     st.write(css, unsafe_allow_html=True)
 
@@ -115,4 +113,5 @@ def main():
                     vectorstore)
 
 if __name__ == '__main__':
+    openai.api_key = st.secrets["openai_api_key"]
     main()
