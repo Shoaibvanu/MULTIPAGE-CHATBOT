@@ -113,5 +113,5 @@ def main():
                     vectorstore)
 
 if __name__ == '__main__':
-    openai.api_key = st.secrets["openai_api_key"]
+    openai.api_key = st.secrets["OPENAI_API_KEY"]
     main()
