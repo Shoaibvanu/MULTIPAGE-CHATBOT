@@ -61,7 +61,7 @@ huggingface-hub==0.14.1
 idna==3.4
 importlib-metadata==7.0.1
 inflect==7.0.0
-InstructorEmbedding
+InstructorEmbedding==1.0.0
 itsdangerous==2.1.2
 jamo==0.4.1
 jieba==0.42.1
