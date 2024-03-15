@@ -14,7 +14,7 @@ from concurrent.futures import ThreadPoolExecutor
 def get_pdf_text(pdf_file):
     text = ""
     if pdf_file.size > 0:
-        with open(pdf_file, 'rb') as file:
+        with pdf_file as file:
             reader = PdfFileReader(file)
             for page_num in range(reader.numPages):
                 text += reader.getPage(page_num).extractText()
