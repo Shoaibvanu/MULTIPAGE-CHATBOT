@@ -61,7 +61,7 @@ huggingface-hub==0.14.1
 idna==3.4
 importlib-metadata==7.0.1
 inflect==7.0.0
-InstructorEmbedding==1.0.1
+InstructorEmbedding
 itsdangerous==2.1.2
 jamo==0.4.1
 jieba==0.42.1
@@ -155,4 +155,4 @@ resampy==0.4.2
 rich==13.7.0
 streamlit==1.18.1
 sentence-transformers==2.0.0
-HuggingFaceInstructEmbeddings
+
