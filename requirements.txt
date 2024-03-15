@@ -155,3 +155,4 @@ resampy==0.4.2
 rich==13.7.0
 streamlit==1.18.1
 sentence-transformers==2.0.0
+HuggingFaceInstructEmbeddings
