@@ -1,11 +1,11 @@
 import streamlit as st
 from PyPDF2 import PdfReader
-from langchain-community.text_splitter import CharacterTextSplitter
-from langchain-community.embeddings import HuggingFaceInstructEmbeddings
-from langchain-community.vectorstores import FAISS
-from langchain-community.chat_models import ChatOpenAI
-from langchain-community.memory import ConversationBufferMemory
-from langchain-community.chains import ConversationalRetrievalChain
+from langchain.text_splitter import CharacterTextSplitter
+from langchain.embeddings import HuggingFaceInstructEmbeddings
+from langchain.vectorstores import FAISS
+from langchain.chat_models import ChatOpenAI
+from langchain.memory import ConversationBufferMemory
+from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
 from langchain-community.llms import HuggingFaceHub
 import fitz  
