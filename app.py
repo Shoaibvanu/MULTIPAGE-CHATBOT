@@ -8,20 +8,15 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
 from langchain.llms import HuggingFaceHub
-import fitz  
-import io
 import openai
 from concurrent.futures import ThreadPoolExecutor
 
 def get_pdf_text(pdf_file):
     text = ""
     if pdf_file.size > 0:
-        pdf_content = io.BytesIO(pdf_file.read())
-        doc = fitz.open(stream=pdf_content, filetype="pdf")
-        for page_num in range(doc.page_count):
-            page = doc.load_page(page_num)
-            text += page.get_text()
-        doc.close()
+        with PdfReader(pdf_file) as reader:
+            for page in reader.pages:
+                text += page.extract_text()
     else:
         st.warning(f"Skipping empty file: {pdf_file.name}")
     return text
@@ -115,3 +110,4 @@ def main():
 if __name__ == '__main__':
     openai.api_key = st.secrets["OPENAI_API_KEY"]
     main()
+
