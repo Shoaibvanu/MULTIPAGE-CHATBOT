@@ -1,5 +1,5 @@
 import streamlit as st
-from PyPDF2 import PdfReader
+from PyPDF2 import PdfFileReader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.vectorstores import FAISS
@@ -14,9 +14,10 @@ from concurrent.futures import ThreadPoolExecutor
 def get_pdf_text(pdf_file):
     text = ""
     if pdf_file.size > 0:
-        with PdfReader(pdf_file) as reader:
-            for page in reader.pages:
-                text += page.extract_text()
+        with open(pdf_file, 'rb') as file:
+            reader = PdfFileReader(file)
+            for page_num in range(reader.numPages):
+                text += reader.getPage(page_num).extractText()
     else:
         st.warning(f"Skipping empty file: {pdf_file.name}")
     return text
@@ -110,4 +111,3 @@ def main():
 if __name__ == '__main__':
     openai.api_key = st.secrets["OPENAI_API_KEY"]
     main()
-
