@@ -7,7 +7,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
-from langchain.llms import HuggingFaceHub
+from langchain.llms import HuggingInstructFaceHub
 import io
 import openai
 from concurrent.futures import ThreadPoolExecutor
@@ -47,7 +47,7 @@ def get_text_chunks(text):
     return chunks
 
 def get_vectorstore(text_chunks):
-    embeddings = HuggingFaceEmbeddings(model_name="nlpaueb/legal-bert-base-uncased")
+    embeddings = HuggingFaceInstructEmbeddings(model_name="nlpaueb/legal-bert-base-uncased")
     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
     return vectorstore
 
